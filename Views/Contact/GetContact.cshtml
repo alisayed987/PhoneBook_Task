@@ -1,0 +1,41 @@
+﻿@model IEnumerable<PhoneBook.Models.Contact>
+@{
+    ViewBag.Title = "GetContact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Contacts</h2>
+@Html.Partial("Search")
+<table id="contacts" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Phone</td>
+                <td id="@item.Id" onclick="Edit(this)">@Html.ActionLink("Edit", "Edit", "Contact", new { id = item.Id }, null)</td>
+                <td id="@item.Id" onclick="Edit(this)">@Html.ActionLink("Delete", "Delete", "Contact", new { id = item.Id }, null)</td>
+
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+@section scripts
+{
+    <script>
+        function Edit(a) {
+            console.log(a.id)
+        }
+    </script>
+    }

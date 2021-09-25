@@ -1,0 +1,15 @@
+﻿
+<div style="margin:10px;float:right">
+
+@using (Html.BeginForm("Find", "Contact"))
+            {
+
+                <input type="text" class="form-control" placeholder="Search" name="st">
+                <label>Name</label>
+                <input type="radio" name="search" value="Name" class="form-group" checked>
+                <label>Phone</label>
+                <input type="radio" name="search" Value="Phone" class="form-group">
+
+                <button class="btn btn-primary form-group" style="margin:5px">search</button>
+            }
+</div>
